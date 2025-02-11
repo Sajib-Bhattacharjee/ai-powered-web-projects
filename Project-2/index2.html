@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Advanced Metadata & SEO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The ultimate HTML/CSS learning project covering all modern web development concepts."
+    />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Web Development, Modern Web Features"
+    />
+    <meta name="author" content="Sajib Bhattacharjee" />
+
+    <!-- Open Graph & Twitter Cards -->
+    <meta
+      property="og:title"
+      content="Ultimate Modern Web Development Project"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://via.placeholder.com/1200x630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Icons & Styles -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <title>Ultimate Modern Web Project</title>
+  </head>
+  <body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Theme Toggle Button -->
+    <button
+      class="theme-toggle"
+      onclick="toggleDarkMode()"
+      aria-label="Toggle dark mode"
+    >
+      🌓
+    </button>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Header with Gradient -->
+    <header class="header-gradient" role="banner">
+      <h1>Ultimate Web Development Project</h1>
+      <nav aria-label="Main navigation" role="navigation">
+        <ul class="nav-list">
+          <li><a href="#basic">Basic</a></li>
+          <li><a href="#advanced">Advanced</a></li>
+          <li><a href="#forms">Forms</a></li>
+          <li><a href="#media">Media</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content" class="container">
+      <!-- Basic HTML Section -->
+      <section id="basic" class="grid-section">
+        <article class="card" data-category="basic">
+          <h2>Basic HTML Elements</h2>
+
+          <!-- Text Formatting -->
+          <div>
+            <h3>Text Elements</h3>
+            <p>
+              This is a <b>bold</b> text, <i>italic</i>, <u>underlined</u>, and
+              <mark>highlighted</mark>.
+            </p>
+            <p>
+              <small>Small text</small>, <sup>superscript</sup>,
+              <sub>subscript</sub>, and <del>deleted text</del>.
+            </p>
+            <pre><code>// Code block example
+function hello() {
+    console.log("Hello World!");
+}</code></pre>
+          </div>
+
+          <!-- Lists -->
+          <div>
+            <h3>Lists</h3>
+            <ul>
+              <li>Unordered List Item 1</li>
+              <li>Unordered List Item 2</li>
+            </ul>
+            <ol start="5" reversed>
+              <li>Ordered List Item 5</li>
+              <li>Ordered List Item 4</li>
+            </ol>
+            <dl>
+              <dt>HTML</dt>
+              <dd>HyperText Markup Language</dd>
+            </dl>
+          </div>
+        </article>
+      </section>
+
+      <!-- Advanced HTML Section -->
+      <section id="advanced" class="grid-section">
+        <article class="card" data-category="interactive">
+          <h2>Advanced HTML Features</h2>
+
+          <!-- Semantic HTML5 -->
+          <div>
+            <h3>Semantic Elements</h3>
+            <aside aria-label="Side note">
+              <p>This is an aside for related content.</p>
+            </aside>
+            <figure>
+              <img
+                src="https://via.placeholder.com/400x200"
+                alt="Semantic HTML example"
+                loading="lazy"
+              />
+              <figcaption>Figure with caption</figcaption>
+            </figure>
+            <time datetime="2025-02-11">11th February - 2025</time>
+          </div>
+
+          <!-- Interactive Elements -->
+          <div>
+            <h3>Interactive Components</h3>
+            <details>
+              <summary>Click to expand</summary>
+              <p>Hidden content revealed!</p>
+            </details>
+            <dialog id="dialog">
+              <p>This is a native HTML dialog!</p>
+              <button onclick="dialog.close()">Close</button>
+            </dialog>
+            <button onclick="dialog.showModal()">Open Dialog</button>
+          </div>
+
+          <!-- Data Attributes & Custom Elements -->
+          <div>
+            <div data-user-id="1234" data-role="admin">
+              Custom data attributes
+            </div>
+            <template id="user-card">
+              <div class="user-card">
+                <h4></h4>
+                <p></p>
+              </div>
+            </template>
+          </div>
+        </article>
+      </section>
+
+      <!-- Advanced Forms Section -->
+      <section id="forms" class="form-container">
+        <h2>Advanced Forms</h2>
+        <form id="demo-form" class="needs-validation" novalidate>
+          <fieldset>
+            <legend>Personal Info</legend>
+            <div class="input-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="email@example.com"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="search">Search:</label>
+              <input type="search" id="search" list="search-suggestions" />
+              <datalist id="search-suggestions">
+                <option value="HTML"></option>
+                <option value="CSS"></option>
+                <option value="JavaScript"></option>
+                <option value="React.js"></option>
+              </datalist>
+            </div>
+
+            <div class="input-group">
+              <label for="file">Upload:</label>
+              <input type="file" id="file" accept=".pdf,.docx" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Advanced Inputs</legend>
+            <div class="input-group">
+              <input type="color" id="color" name="color" />
+            </div>
+            <div class="input-group">
+              <input type="range" id="volume" name="volume" min="0" max="11" />
+            </div>
+            <div class="input-group">
+              <input type="datetime-local" id="meeting-time" />
+            </div>
+            <div class="input-group">
+              <meter
+                id="fuel"
+                min="0"
+                max="100"
+                low="25"
+                high="75"
+                optimum="100"
+                value="50"
+              ></meter>
+            </div>
+            <div class="input-group">
+              <progress id="progress" value="70" max="100"></progress>
+            </div>
+          </fieldset>
+
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </form>
+      </section>
+
+      <!-- Multimedia Section -->
+      <section id="media" class="grid-section">
+        <article class="card" data-category="media">
+          <h2>Multimedia</h2>
+          <video controls width="600" poster="poster.jpg">
+            <source src="video.mp4" type="video/mp4" />
+            <track
+              src="subtitles.vtt"
+              kind="subtitles"
+              srclang="en"
+              label="English"
+            />
+            Your browser doesn't support HTML5 video.
+          </video>
+
+          <audio controls>
+            <source src="audio.ogg" type="audio/ogg" />
+            Your browser doesn't support audio element.
+          </audio>
+
+          <iframe
+            src="https://example.com"
+            title="External Content"
+            loading="lazy"
+          ></iframe>
+
+          <!-- SVG & MathML Integration -->
+          <svg width="100" height="100">
+            <circle cx="50" cy="50" r="40" stroke="black" fill="red" />
+          </svg>
+
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mrow>
+              <msup><mi>a</mi><mn>2</mn></msup>
+              <mo>+</mo>
+              <msup><mi>b</mi><mn>2</mn></msup>
+              <mo>=</mo>
+              <msup><mi>c</mi><mn>2</mn></msup>
+            </mrow>
+          </math>
+        </article>
+      </section>
+
+      <!-- Scroll Snap Section -->
+      <section class="scroll-snap-container">
+        <div class="scroll-snap-item"><h3>Feature 1</h3></div>
+        <div class="scroll-snap-item"><h3>Feature 2</h3></div>
+        <div class="scroll-snap-item"><h3>Feature 3</h3></div>
+      </section>
+    </main>
+
+    <!-- Custom Cursor Elements -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-trail"></div>
+
+    <!-- Footer with Microdata -->
+    <footer role="contentinfo" itemscope itemtype="https://schema.org/Person">
+      <div class="footer-content">
+        <p>
+          &copy; <time datetime="2025">2025</time>
+          <span itemprop="name">Sajib Bhattacharjee</span>
+        </p>
+        <p>
+          Contact:
+          <a href="mailto:sajibbhattacharjee2000@gmail.com" itemprop="email"
+            >sajibbhattacharjee2000@gmail.com</a
+          >
+        </p>
+        <address
+          itemprop="address"
+          itemscope
+          itemtype="https://schema.org/PostalAddress"
+        >
+          <span itemprop="streetAddress">123 Web Dev Street</span>,
+          <span itemprop="addressLocality">Digital City, Internet</span>
+        </address>
+      </div>
+    </footer>
+
+    <!-- View Transitions API Polyfill -->
+  </body>
+</html>

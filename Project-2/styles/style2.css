@@ -1,0 +1,257 @@
+/* Advanced CSS Features */
+:root {
+  --primary: #2563eb;
+  --secondary: #7c3aed;
+  --accent: #059669;
+  --danger: #dc2626;
+  --gradient-start: #4f46e5;
+  --gradient-end: #9333ea;
+  --background: hsl(0, 0%, 100%);
+  --text: hsl(0, 0%, 10%);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modern Layout Techniques */
+.container {
+  container-type: inline-size;
+}
+
+.grid-section {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+/* Container Queries */
+@container (width > 600px) {
+  .card {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+/* Scroll-Driven Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  view-timeline: --card block;
+  animation: fade-in ease-out both;
+  animation-timeline: --card;
+  animation-range: entry 25% cover 50%;
+}
+
+/* Modern Form Styles */
+.input-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.floating-input {
+  border: 2px solid #e5e7eb;
+  transition: var(--transition);
+}
+
+.floating-input:focus {
+  border-color: var(--primary);
+  outline: 3px solid color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+.floating-label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+.floating-input:focus + .floating-label,
+.floating-input:not(:placeholder-shown) + .floating-label {
+  transform: translateY(-180%);
+  font-size: 0.875rem;
+  color: var(--primary);
+}
+
+/* Scroll Snap */
+.scroll-snap-container {
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.scroll-snap-item {
+  scroll-snap-align: center;
+  flex: 0 0 80%;
+  background: var(--background);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+/* Advanced Selectors */
+.card[data-category='interactive']:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+form:has(:invalid) {
+  border: 2px solid color-mix(in srgb, var(--danger) 20%, transparent);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background: color-mix(in srgb, var(--background) 90%, black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  transform-origin: 0 50%;
+  animation: scroll-progress linear;
+  animation-timeline: scroll(root);
+}
+
+@keyframes scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Modern Gradient Effects */
+.header-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  position: relative;
+}
+
+.header-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 50%, rgba(0, 0, 0, 0.1));
+  mix-blend-mode: multiply;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transition: transform 0.2s, opacity 0.2s;
+  z-index: 9999;
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background: color-mix(in srgb, var(--primary) 20%, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: transform 0.4s, opacity 0.4s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: hsl(0, 0%, 10%);
+    --text: hsl(0, 0%, 90%);
+  }
+}
+
+/* View Transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Modern Animations */
+.theme-toggle {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--background) 80%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
+  transition: var(--transition);
+}
+
+/* Fluid Typography */
+html {
+  font-size: clamp(1rem, 0.75rem + 0.5vw, 1.125rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.5rem);
+}
+
+/* Modern Grid Layout */
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 2rem;
+}
+
+/* Shape Outside */
+figure {
+  shape-outside: circle(50%);
+  float: left;
+  margin-right: 2rem;
+}
+
+/* Backdrop Filter */
+dialog {
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--background) 90%, transparent) !important;
+}
+
+/* CSS Nesting */
+.card {
+  background: var(--background);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+}
