@@ -3,52 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Music Player</title>
-    <link rel="stylesheet" href="/styles/style.css" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link id="theme-style" rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <div class="music-player">
-      <!-- Theme Toggle Button -->
-      <button id="theme-toggle">🌙</button>
-
-      <!-- Album Art -->
-      <div class="album-art">
-        <img id="album-art" src="assets/images/art1.jpg" alt="Album Art" />
+    <div class="container">
+      <h1>Task Manager</h1>
+      <button id="theme-toggle">Dark/White Theme</button>
+      <div class="progress-bar">
+        <div class="progress"></div>
       </div>
-
-      <!-- Track Info -->
-      <div class="track-info">
-        <h2 id="track-title">Song 1</h2>
-        <h3 id="track-artist">Artist 1</h3>
-      </div>
-
-      <!-- Progress Bar -->
-      <div class="progress-container">
-        <input type="range" id="progress-bar" value="0" />
-        <span id="current-time">0:00</span> / <span id="duration">0:00</span>
-      </div>
-
-      <!-- Controls -->
-      <div class="controls">
-        <button id="prev-btn">⏮️</button>
-        <button id="play-pause-btn">▶️</button>
-        <button id="next-btn">⏭️</button>
-      </div>
-
-      <!-- Volume Control -->
-      <div class="volume-control">
-        <button id="mute-btn">🔊</button>
+      <form id="task-form">
+        <input type="text" id="task-title" placeholder="Task Title" required />
+        <textarea id="task-description" placeholder="Description"></textarea>
+        <input type="date" id="task-due-date" />
+        <select id="task-priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <select id="task-category">
+          <option value="personal">Personal</option>
+          <option value="work">Work</option>
+          <option value="shopping">Shopping</option>
+        </select>
+        <button type="submit">Add Task</button>
+      </form>
+      <div class="actions">
+        <input type="text" id="search" placeholder="Search tasks..." />
+        <button id="export-tasks">Export Tasks</button>
         <input
-          type="range"
-          id="volume-slider"
-          min="0"
-          max="1"
-          step="0.1"
-          value="1"
+          type="file"
+          id="import-tasks"
+          accept=".json"
+          style="display: none"
         />
+        <label for="import-tasks" class="import-label">Import Tasks</label>
+        <button id="share-link">Share Tasks</button>
+      </div>
+      <div class="categories">
+        <div class="category" data-category="personal">
+          <h2>Personal</h2>
+          <ul class="task-list" data-category="personal"></ul>
+        </div>
+        <div class="category" data-category="work">
+          <h2>Work</h2>
+          <ul class="task-list" data-category="work"></ul>
+        </div>
+        <div class="category" data-category="shopping">
+          <h2>Shopping</h2>
+          <ul class="task-list" data-category="shopping"></ul>
+        </div>
       </div>
     </div>
-
-    <script src="/scripts/script.js"></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>
