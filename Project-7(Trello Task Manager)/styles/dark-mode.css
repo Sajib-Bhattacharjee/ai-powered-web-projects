@@ -1,0 +1,45 @@
+body {
+  background-color: #333;
+  color: #fff;
+}
+
+.container {
+  background: #444;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#theme-toggle {
+  background: #555;
+}
+
+#task-form input,
+#task-form textarea,
+#task-form select {
+  background: #555;
+  color: #fff;
+  border-color: #666;
+}
+
+#task-form button {
+  background: #28a745;
+}
+
+#search {
+  background: #555;
+  color: #fff;
+  border-color: #666;
+}
+
+.category {
+  background: #555;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.task {
+  background: #666;
+  border-color: #777;
+}
+
+.task.completed {
+  background: #4caf50;
+}

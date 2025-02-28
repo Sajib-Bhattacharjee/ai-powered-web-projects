@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link id="theme-style" rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Task Manager</h1>
+      <button id="theme-toggle">Dark/White Theme</button>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <form id="task-form">
+        <input type="text" id="task-title" placeholder="Task Title" required />
+        <textarea id="task-description" placeholder="Description"></textarea>
+        <input type="date" id="task-due-date" />
+        <select id="task-priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <select id="task-category">
+          <option value="personal">Personal</option>
+          <option value="work">Work</option>
+          <option value="shopping">Shopping</option>
+        </select>
+        <button type="submit">Add Task</button>
+      </form>
+      <div class="actions">
+        <input type="text" id="search" placeholder="Search tasks..." />
+        <button id="export-tasks">Export Tasks</button>
+        <input
+          type="file"
+          id="import-tasks"
+          accept=".json"
+          style="display: none"
+        />
+        <label for="import-tasks" class="import-label">Import Tasks</label>
+        <button id="share-link">Share Tasks</button>
+      </div>
+      <div class="categories">
+        <div class="category" data-category="personal">
+          <h2>Personal</h2>
+          <ul class="task-list" data-category="personal"></ul>
+        </div>
+        <div class="category" data-category="work">
+          <h2>Work</h2>
+          <ul class="task-list" data-category="work"></ul>
+        </div>
+        <div class="category" data-category="shopping">
+          <h2>Shopping</h2>
+          <ul class="task-list" data-category="shopping"></ul>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
