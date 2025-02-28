@@ -1,0 +1,84 @@
+:root {
+  --background-color: #fff;
+  --text-color: #000;
+  --player-background: #fff;
+  --player-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --background-color: #121212;
+  --text-color: #fff;
+  --player-background: #1e1e1e;
+  --player-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.music-player {
+  background-color: var(--player-background);
+  border-radius: 10px;
+  box-shadow: var(--player-shadow);
+  padding: 20px;
+  max-width: 300px;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.album-art img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.track-info {
+  margin: 15px 0;
+}
+
+.progress-container {
+  margin: 15px 0;
+}
+
+.progress-container input[type='range'] {
+  width: 100%;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 10px;
+  color: var(--text-color);
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.volume-control input[type='range'] {
+  width: 100px;
+  margin-left: 10px;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--text-color);
+}
