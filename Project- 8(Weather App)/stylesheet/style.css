@@ -1,0 +1,157 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 1rem;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.search {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.weather {
+  margin-top: 20px;
+}
+
+#forecast {
+  margin-top: 20px;
+}
+
+#forecast-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.forecast-item {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+.forecast-item:hover {
+  transform: scale(1.05);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .container {
+  background-color: #1e1e1e;
+  /* background-color: indigo; */
+
+  color: #ffffff;
+}
+
+body.dark-mode input {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark-mode button {
+  background-color: #555;
+}
+
+body.dark-mode .forecast-item {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Responsive Styles */
+@media (min-width: 600px) {
+  .container {
+    width: 80%;
+    max-width: 600px;
+  }
+
+  .search {
+    flex-direction: row;
+  }
+
+  input {
+    width: 70%;
+  }
+
+  button {
+    width: auto;
+  }
+
+  #forecast-list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .forecast-item {
+    width: 30%;
+  }
+}
+
+@media (min-width: 900px) {
+  .container {
+    max-width: 800px;
+  }
+
+  .forecast-item {
+    width: 22%;
+  }
+}
