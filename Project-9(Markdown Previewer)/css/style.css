@@ -1,0 +1,242 @@
+:root {
+  /* Colors */
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --primary-color: #4a90e2;
+  --border-color: #dee2e6;
+  --header-bg: #ffffff;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --vh: 1vh;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+
+  /* Typography */
+  --font-base: "Inter", sans-serif;
+  --font-mono: "Fira Code", monospace;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --primary-color: #6c63ff;
+  --border-color: #4a4a4a;
+  --header-bg: #2d2d2d;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-lg) 0;
+  flex-grow: 1;
+}
+
+/* Responsive Header */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+  background-color: var(--header-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+header h1 {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: var(--primary-color);
+  margin: 0;
+  line-height: 1.2;
+  flex: 1;
+  min-width: 200px;
+}
+
+#themeToggle {
+  background: var(--primary-color);
+  border: none;
+  color: white;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  transition: transform 0.2s ease;
+  font-family: var(--font-base);
+}
+
+#themeToggle span {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+#themeToggle:hover {
+  transform: scale(1.05);
+}
+
+#themeToggle:active {
+  transform: scale(0.95);
+}
+
+.editor-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.editor-box,
+.preview-box {
+  background: var(--header-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.editor-header,
+.preview-header {
+  padding: var(--space-sm) var(--space-md);
+  background-color: color-mix(in srgb, var(--header-bg), var(--bg-color) 20%);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.word-count,
+.status-indicator {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+}
+
+textarea {
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 60);
+  min-height: 400px;
+  padding: var(--space-md);
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  resize: none;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--primary-color);
+}
+
+#preview {
+  padding: var(--space-md);
+  height: calc(var(--vh, 1vh) * 60);
+  min-height: 400px;
+  overflow-y: auto;
+}
+
+/* Markdown Styling */
+#preview h1 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+#preview h2 {
+  font-size: 1.75rem;
+  margin: 0.875rem 0;
+}
+#preview h3 {
+  font-size: 1.5rem;
+  margin: 0.75rem 0;
+}
+#preview pre {
+  background: rgba(0, 0, 0, 0.1);
+  padding: var(--space-sm);
+  border-radius: 6px;
+}
+#preview code {
+  font-family: var(--font-mono);
+}
+#preview blockquote {
+  border-left: 3px solid var(--primary-color);
+  margin: var(--space-sm) 0;
+  padding-left: var(--space-sm);
+}
+#preview a {
+  color: var(--primary-color);
+  text-decoration: none;
+  position: relative;
+}
+#preview a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--space-md);
+  }
+
+  header {
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+  }
+
+  #themeToggle span {
+    display: none;
+  }
+
+  #themeToggle::after {
+    content: "Theme";
+  }
+
+  textarea,
+  #preview {
+    height: calc(var(--vh, 1vh) * 50);
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #themeToggle::after {
+    content: "";
+  }
+
+  #themeToggle {
+    width: 100%;
+    justify-content: center;
+  }
+}
