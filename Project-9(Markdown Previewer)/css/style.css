@@ -47,6 +47,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -55,6 +57,8 @@ body {
   margin: 0 auto;
   padding: var(--space-lg) 0;
   flex-grow: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Responsive Header */
