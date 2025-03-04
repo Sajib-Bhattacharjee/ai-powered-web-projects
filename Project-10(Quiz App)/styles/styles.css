@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#quiz-container,
+#score-container,
+#leaderboard {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#options button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#feedback {
+  font-weight: bold;
+}
+
+.correct {
+  color: green;
+}
+
+.wrong {
+  color: red;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.theme-icon {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.d-none {
+  display: none;
+}
